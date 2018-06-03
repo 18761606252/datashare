@@ -22,12 +22,18 @@ public interface DataService {
 	//分页用
 	public Integer findTemperatureByVoCount (QueryVo vo);
 	
-	public Temperature findTemperatureById(BigInteger id);
+	public Temperature findDataById(BigInteger id);
 
 	//导入
 	public void importExcelInfo(InputStream in, MultipartFile file, String salaryDate) throws Exception;
 	//根据dataStation导入
 	public XSSFWorkbook exportExcelInfo(String dataStation) throws Exception;
+
+
+
+	public void updateDataById(Temperature t);
+
+	public void deleteDataById(BigInteger id);
 
 	
 }

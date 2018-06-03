@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.itcast.utils.Page;
 import cn.nuist.pojo.BaseDict;
@@ -24,8 +25,9 @@ import cn.nuist.pojo.QueryVo;
 import cn.nuist.pojo.Temperature;
 import cn.nuist.service.DataService;
 
+
 @Controller
-@RequestMapping("/customer")
+@RequestMapping("/dataManage")
 public class DataController {
 
 	@Autowired
@@ -90,11 +92,11 @@ public class DataController {
 		return "dataManage";
 	}
 	
-	
+	//修改信息
 	@RequestMapping("/detail")
 	//@ResponseBody
 	public Temperature detail(BigInteger id) throws Exception{
-		Temperature temperature = customerService.findTemperatureById(id);
+		Temperature temperature = customerService.findDataById(id);
 		return temperature;
 	}
 	
@@ -127,4 +129,17 @@ public class DataController {
 	    System.out.println("Success!");
 	}   
 	
+	
+		@RequestMapping("/update")
+		public String update(Temperature t) throws Exception{
+			customerService.updateDataById(t);
+			return "dataManage";
+		}
+		
+		@RequestMapping("/delete")
+		public String delete(BigInteger id) throws Exception{
+			customerService.deleteDataById(id);
+			return "dataManage";
+		}
+
 }

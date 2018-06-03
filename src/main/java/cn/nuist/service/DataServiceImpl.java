@@ -18,6 +18,7 @@ import cn.nuist.pojo.ExcelBean;
 import cn.nuist.pojo.QueryVo;
 import cn.nuist.pojo.Temperature;
 import cn.nuist.utils.ExcelUtil;
+
 import cn.nuist.dao.DictMapper;
 
 @Service
@@ -49,8 +50,8 @@ public class DataServiceImpl implements DataService {
 	}
 
 	@Override
-	public Temperature findTemperatureById(BigInteger id) {
-		Temperature temperature=temperatureMapper.findTemperatureById(id);
+	public Temperature findDataById(BigInteger id) {
+		Temperature temperature=temperatureMapper.findDataById(id);
 		return temperature;
 	}
 
@@ -151,6 +152,21 @@ public class DataServiceImpl implements DataService {
 	    xssfWorkbook = ExcelUtil.createExcelFile(Temperature.class, Temlist, map, sheetName);  
 	    System.out.println(Temlist); 
 	    return xssfWorkbook;
+	}
+
+
+
+	@Override
+	public void updateDataById(Temperature t) {
+		temperatureMapper.updateDataById(t);
+		
+	}
+
+
+	@Override
+	public void deleteDataById(BigInteger id) {
+		temperatureMapper.deleteDataById(id);
+		
 	}
 
 

@@ -8,6 +8,11 @@ public class Temperature {
 	private String year_data;
 	private String mon_data;
 	private Integer day_data;
+	private String data_city;
+	private String data_element;
+	private String data_source;
+	private String data_year;
+	private String data_mon;
 	private String t1;
 	private String t2;
 	private String t3;
@@ -34,11 +39,7 @@ public class Temperature {
 	private String t24;
 	private String tmax;
 	private String tmin;
-	private String data_city;
-	private String data_element;
-	private String data_source;
-	private String data_year;
-	private String data_mon;
+	
 	public String getData_year() {
 		return data_year;
 	}

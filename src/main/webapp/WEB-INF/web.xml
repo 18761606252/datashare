@@ -23,22 +23,42 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!--在向servlet或JSP页面制定初始化参数或定制URL时，必须首先命名servlet或JSP页面。 Servlet元素就是用来完成此项任务的 -->
+	
+	<!--配置springMvc前台 -->
 	<servlet>
-		<servlet-name>springMvc</servlet-name>
+		<servlet-name>front</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:SpringMvc.xml</param-value>
+			<param-value>classpath:SpringMvc-front.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<!--服务器一般为servlet提供一个缺省的URL：http://host/webAppPrefix/servlet/ServletName。 
 		但是，常常会更改这个URL，以便servlet可以访问初始化参数或更容易地处理相对URL。 在更改缺省URL时，使用servlet-mapping元素 -->
 	<servlet-mapping>
-		<servlet-name>springMvc</servlet-name>
-		<url-pattern>*.action</url-pattern>
+		<servlet-name>front</servlet-name>
+		<url-pattern>*.shtml</url-pattern>
 	</servlet-mapping>
+	
+
+	<!--配置springMvc后台 -->
+	<servlet>
+		<servlet-name>back</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:SpringMvc-back.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!--服务器一般为servlet提供一个缺省的URL：http://host/webAppPrefix/servlet/ServletName。 
+		但是，常常会更改这个URL，以便servlet可以访问初始化参数或更容易地处理相对URL。 在更改缺省URL时，使用servlet-mapping元素 -->
+	<servlet-mapping>
+		<servlet-name>back</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	
 	<!--过滤器元素将一个名字与一个实现javax.servlet.Filter接口的类相关联-->
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>

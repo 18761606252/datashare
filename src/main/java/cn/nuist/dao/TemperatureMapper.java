@@ -15,5 +15,11 @@ public interface TemperatureMapper {
 		public Temperature findTemperatureById(BigInteger id);
 
 		public List<Temperature> downloadTemperatureBydataStation(String dataStation);
+		
+		public Temperature findDataById(BigInteger id);
+		
+		public void updateDataById(Temperature t);
+		
+		public void deleteDataById(BigInteger id);
 
 }
