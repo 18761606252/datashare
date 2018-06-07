@@ -170,4 +170,11 @@ public class DataServiceImpl implements DataService {
 	}
 
 
+	@Override
+	public void deleteDataByIds(BigInteger[] ids) {
+		temperatureMapper.deleteDataByIds(ids);
+		
+	}
+
+
 }

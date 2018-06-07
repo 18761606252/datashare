@@ -73,4 +73,14 @@
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<!-- 配置登录页面验证码 -->
+	<servlet>
+		<servlet-name>captcha</servlet-name>
+		<servlet-class>cn.nuist.session.JcaptchaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>captcha</servlet-name>
+		<url-pattern>/captcha.svl</url-pattern>
+	</servlet-mapping>
 </web-app>

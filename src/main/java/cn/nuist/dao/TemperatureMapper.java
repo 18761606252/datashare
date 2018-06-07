@@ -21,5 +21,7 @@ public interface TemperatureMapper {
 		public void updateDataById(Temperature t);
 		
 		public void deleteDataById(BigInteger id);
+		//批量删除
+		public void deleteDataByIds(BigInteger[] ids);
 
 }

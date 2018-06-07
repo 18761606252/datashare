@@ -12,7 +12,7 @@
 				and t.data_city=#{dataCity}
 			</if>
 			<if test="dataElement !=null and dataElement !='' ">
-				and data_element=#{dataElement}
+				and t.data_element=#{dataElement}
 			</if>
 			<if test="dataYear !=null and dataYear !='' ">
 				and t.data_year=#{dataYear}
@@ -25,13 +25,17 @@
 	
 	<!-- 分类查询 -->
 	<select id="findTemperatureByVo" parameterType="cn.nuist.pojo.QueryVo" resultType="cn.nuist.pojo.Temperature">
-		SELECT t.t_id,t.station_id ,d.dict_item_name data_city,t.year_data,t.mon_data,t.day_data,b.dict_item_name data_element,c.dict_item_name data_source from t 
+		SELECT t.t_id,t.station_id,d.dict_item_name data_city,t.year_data,
+		t.mon_data,t.day_data,b.dict_item_name data_element,
+		c.dict_item_name data_source 
+		from t 
 		LEFT JOIN base_dict b ON t.data_element=b.dict_id
 		LEFT JOIN base_dict c ON t.data_source=c.dict_id
 		LEFT JOIN base_dict d ON t.data_city=d.dict_id
+		LEFT JOIN base_dict e ON t.data_year=e.dict_id
 		<include refid="temperature_where"></include>
 		<!-- 从第几条开始到第几条 -->
-		limit #{start},#{size}
+		limit #{start}, #{size}
 	</select>
 	
 	<!-- 分页用 -->
@@ -55,7 +59,7 @@
 	
 	<!-- 保存修改 -->
 		<update id="updateDataById" parameterType="cn.nuist.pojo.Temperature">
-		UPDATE t
+		update t
 		<!-- set标签
 			可自动添加set关键字
 			可去掉最后一个更新的逗号
@@ -73,17 +77,33 @@
 			<if test="year_data != null and year_data != ''">
 				 year_data=#{year_data},
 			</if>
+			<if test="data_year != null and data_year != ''">
+				 data_year=#{data_year},
+			</if>
+			
 			<if test="mon_data != null and mon_data != ''">
 				mon_data=#{mon_data},
 			</if>
 		
 		</set>
-		WHERE t_id =#{t_id}
+		where t_id =#{t_id}
 	</update>	
 			
 		<!-- 删除 -->
 		<delete id="deleteDataById" parameterType="BigInteger">
 			delete from t where t_id=#{id}
+		</delete>
+		
+		<!-- 批量删除 -->
+		<delete id="deleteDataByIds" parameterType="BigInteger">
+			delete from t 
+			<where>
+				t_id in
+				<foreach collection="array" item="t_id" open="(" close=")" separator=",">
+				#{t_id}
+				</foreach>
+			</where>
+			 
 		</delete>
 
 </mapper>

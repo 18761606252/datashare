@@ -24,6 +24,7 @@ import cn.nuist.pojo.BaseDict;
 import cn.nuist.pojo.QueryVo;
 import cn.nuist.pojo.Temperature;
 import cn.nuist.service.DataService;
+import cn.nuist.service.SessionProvider;
 
 
 @Controller
@@ -32,6 +33,8 @@ public class DataController {
 
 	@Autowired
 	private DataService customerService;
+	@Autowired
+	private SessionProvider sessionProvider;
 
 	@Value("${customer.dict.city}")
 	private String city;
@@ -41,6 +44,7 @@ public class DataController {
 	private String year;
 	@Value("${customer.dict.month}")
 	private String month;
+	
 
 	@RequestMapping("/list")
 	public String list(QueryVo vo, Model model) throws Exception {
@@ -94,7 +98,7 @@ public class DataController {
 	
 	//修改信息
 	@RequestMapping("/detail")
-	//@ResponseBody
+	@ResponseBody
 	public Temperature detail(BigInteger id) throws Exception{
 		Temperature temperature = customerService.findDataById(id);
 		return temperature;
@@ -139,6 +143,13 @@ public class DataController {
 		@RequestMapping("/delete")
 		public String delete(BigInteger id) throws Exception{
 			customerService.deleteDataById(id);
+			return "dataManage";
+		}
+		
+		//批量删除
+		@RequestMapping("/deletes")
+		public String deletes(BigInteger[] ids) throws Exception{
+			customerService.deleteDataByIds(ids);
 			return "dataManage";
 		}
 

@@ -40,11 +40,11 @@ public class Temperature {
 	private String tmax;
 	private String tmin;
 	
-	public String getData_year() {
-		return data_year;
+	public String getYear_data() {
+		return year_data;
 	}
-	public void setData_year(String data_year) {
-		this.data_year = data_year;
+	public void setYear_data(String year_data) {
+		this.year_data = year_data;
 	}
 	public String getData_mon() {
 		return data_mon;
@@ -64,11 +64,11 @@ public class Temperature {
 	public void setStation_id(Integer station_id) {
 		this.station_id = station_id;
 	}
-	public String getYear_data() {
-		return year_data;
+	public String getData_year() {
+		return data_year;
 	}
-	public void setYear_data(String year_data) {
-		this.year_data = year_data;
+	public void Data_year(String data_year) {
+		this.data_year = data_year;
 	}
 	public String getMon_data() {
 		return mon_data;

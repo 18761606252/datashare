@@ -9,7 +9,7 @@ public class QueryVo {
 	private String dataMonth;
 	private Integer page = 1;
 	private Integer start;
-	private Integer size = 13;
+	private Integer size = 10;
 
 	public String getDataStation() {
 		return dataStation;

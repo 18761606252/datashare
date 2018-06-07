@@ -20,21 +20,21 @@
 <title>数据查询-BootCRM</title>
 
 <!-- Bootstrap Core CSS -->
-<link href="<%=basePath%>css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=basePath%>res/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- MetisMenu CSS -->
-<link href="<%=basePath%>css/metisMenu.min.css" rel="stylesheet">
+<link href="<%=basePath%>res/css/metisMenu.min.css" rel="stylesheet">
 
 <!-- DataTables CSS -->
-<link href="<%=basePath%>css/dataTables.bootstrap.css" rel="stylesheet">
+<link href="<%=basePath%>res/css/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="<%=basePath%>css/sb-admin-2.css" rel="stylesheet">
+<link href="<%=basePath%>res/css/sb-admin-2.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="<%=basePath%>css/font-awesome.min.css" rel="stylesheet"
+<link href="<%=basePath%>res/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
-<link href="<%=basePath%>css/boot-crm.css" rel="stylesheet"
+<link href="<%=basePath%>res/css/boot-crm.css" rel="stylesheet"
 	type="text/css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -49,68 +49,69 @@
 <body>
 
 
-
-
-	
-			<div class="panel panel-default">
-				<div class="panel-body">
-					<form class="form-inline" action="${pageContext.request.contextPath }/dataManage/list.do" method="get">
-						<div class="form-group">
-							<label for="dataStation">数据站点</label> 
-							<input type="text" class="form-control" id="dataStation" value="${dataStation}" name="dataStation">
-						</div>
-						<div class="form-group">
-							<label for="dataCity">数据城市</label> 
-							<select	class="form-control" id="dataCity"  name="dataCity">
-								<option value="">--请选择--</option>
-								<c:forEach items="${cityType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == dataCity}"> selected</c:if>>${item.dict_item_name }</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="dataElement">数据要素</label> 
-							<select	class="form-control" id="dataElement"  name="dataElement">
-								<option value="">--请选择--</option>
-								<c:forEach items="${elementType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == dataElement}"> selected</c:if>>${item.dict_item_name }</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="dataYear">数据年份</label> 
-							<select	class="form-control" id="dataYear"  name="dataYear">
-								<option value="">--请选择--</option>
-								<c:forEach items="${yearType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == dataYear}"> selected</c:if>>${item.dict_item_name }</option>
-								</c:forEach>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="dataMonth">数据月份</label>
-							<select	class="form-control" id="dataMonth" name="dataMonth">
-								<option value="">--请选择--</option>
-								<c:forEach items="${monthType}" var="item">
-									<option value="${item.dict_id}"<c:if test="${item.dict_id == dataMonth}"> selected</c:if>>${item.dict_item_name }</option>
-								</c:forEach>
-							</select>
-						</div>
-						<button type="submit" class="btn btn-primary">查询</button>
-						
-						
-					</form>
-					
-					
-				</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form class="form-inline" action="${pageContext.request.contextPath }/dataManage/list.do" method="get">
+			<div class="form-group">
+				<label for="dataStation">数据站点</label> 
+				<input type="text" class="form-control" id="dataStation" value="${dataStation}" name="dataStation">
 			</div>
+			<div class="form-group">
+				<label for="dataCity">数据城市</label> 
+				<select	class="form-control" id="dataCity"  name="dataCity">
+					<option value="">--请选择--</option>
+					<c:forEach items="${cityType}" var="item">
+						<option value="${item.dict_id}"<c:if test="${item.dict_id == dataCity}"> selected</c:if>>${item.dict_item_name }</option>
+					</c:forEach>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="dataElement">数据要素</label> 
+				<select	class="form-control" id="dataElement"  name="dataElement">
+					<option value="">--请选择--</option>
+					<c:forEach items="${elementType}" var="item">
+						<option value="${item.dict_id}"<c:if test="${item.dict_id == dataElement}"> selected</c:if>>${item.dict_item_name }</option>
+					</c:forEach>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="dataYear">数据年份</label> 
+				<select	class="form-control" id="dataYear"  name="dataYear">
+					<option value="">--请选择--</option>
+					<c:forEach items="${yearType}" var="item">
+						<option value="${item.dict_id}"<c:if test="${item.dict_id == dataYear}"> selected</c:if>>${item.dict_item_name }</option>
+					</c:forEach>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="dataMonth">数据月份</label>
+				<select	class="form-control" id="dataMonth" name="dataMonth">
+					<option value="">--请选择--</option>
+					<c:forEach items="${monthType}" var="item">
+						<option value="${item.dict_id}"<c:if test="${item.dict_id == dataMonth}"> selected</c:if>>${item.dict_item_name }</option>
+					</c:forEach>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">查询</button>
+			
+				
+			</form>
+			
+			
+	</div>
+</div>
+
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="panel panel-default">
 						<div class="panel-heading">数据信息列表</div>
 						<!-- /.panel-heading -->
+						<form id="jvForm">
 						<table class="table table-bordered table-striped">
 							<thead>
 								<tr>
+								<th width="20"><input type="checkbox" onclick="checkBox('ids',this.checked)"/></th>
 									<th>ID</th>
 									<th>数据站点</th>
 									<th>数据城市</th>
@@ -125,6 +126,7 @@
 							<tbody>
 								<c:forEach items="${page.rows}" var="row">
 									<tr>
+									<td><input type="checkbox" value="${row.t_id }" name="ids"/></td>
 										<td>${row.t_id}</td>
 										<td>${row.station_id}</td>
 										<td>${row.data_city}</td>
@@ -140,11 +142,25 @@
 										</td>
 									</tr>
 								</c:forEach>
+								
 							</tbody>
+								
 						</table>
+						</form>
+						
+						
+						
+						 <div class="col-md-12 text-left" style="margin-top:30px;">
+						
+									<a href="#" class="btn btn-danger btn-xs" onclick="optDelete(${name})">批量删除</a>
+								</div> 
+							
+					
+						
 						<div class="col-md-12 text-right">
 							<itcast:page url="${pageContext.request.contextPath }/dataManage/list.do" />
 						</div>
+						
 						<!-- /.panel-body -->
 					</div>
 					<!-- /.panel -->
@@ -154,100 +170,106 @@
 		</div>
 		<!-- /#page-wrapper -->
 
-	</div>
+	
 	<!-- 数据编辑对话框 -->
-	<div class="modal fade" id="dataEditDialog" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel">修改数据信息</h4>
-				</div>
-				<div class="modal-body">
-					<form class="form-horizontal" id="edit_data_form">
-						<input type="hidden"  id="edit_t_id" name="t_id"/>
-						<div class="form-group">
-							<label for="edit_stationId" class="col-sm-2 control-label">数据站点</label>
+<div class="modal fade" id="dataEditDialog" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">修改数据信息</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" id="edit_data_form">
+					<input type="hidden"  id="edit_t_id" name="t_id"/>
+					<!-- <input type="hidden"  id="edit_dataYear" name="data_year"/> -->
+					<div class="form-group">
+						<label for="edit_stationId" class="col-sm-2 control-label">数据站点</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="edit_stationId" placeholder="数据站点" name="station_id">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit_dataCity" style="float:left;padding:7px 15px 0 27px;">数据城市</label> 
+						<div class="col-sm-10">
+							<select	class="form-control" id="edit_dataCity" placeholder="数据城市" name="data_city">
+								<option value="">--请选择--</option>
+								<c:forEach items="${cityType}" var="item">
+									<option value="${item.dict_id}"<c:if test="${item.dict_id == dataCity}"> selected</c:if>>${item.dict_item_name }</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit_dataElement" style="float:left;padding:7px 15px 0 27px;">数据要素</label>
+						<div class="col-sm-10"> 
+							<select	class="form-control" id="edit_dataElement"  name="data_element">
+								<option value="">--请选择--</option>
+								<c:forEach items="${elementType}" var="item">
+									<option value="${item.dict_id}"<c:if test="${item.dict_id == dataElement}"> selected</c:if>>${item.dict_item_name }</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit_dataYear" style="float:left;padding:7px 15px 0 27px;">数据年份</label>
+						<div class="col-sm-10">
+							<select	class="form-control" id="edit_dataYear" name="data_year">
+								<option value="">--请选择--</option>
+								<c:forEach items="${yearType}" var="item">
+									<option value="${item.dict_id}"<c:if test="${item.dict_id == dataYear}"> selected</c:if>>${item.dict_item_name }</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="edit_dataMon" style="float:left;padding:7px 15px 0 27px;">数据月份</label>
+						<div class="col-sm-10">
+							<select	class="form-control" id="edit_dataMon" name="data_mon">
+								<option value="">--请选择--</option>
+								<c:forEach items="${monthType}" var="item">
+									<option value="${item.dict_id}"<c:if test="${item.dict_id == dataMonth}"> selected</c:if>>${item.dict_item_name }</option>
+								</c:forEach>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+							<label for="edit_dataSource" class="col-sm-2 control-label">数据来源</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="edit_stationId" placeholder="数据站点" name="station_id">
+								<input type="text" class="form-control" id="edit_dataSource" placeholder="数据来源" name="data_source">
 							</div>
 						</div>
-						<div class="form-group">
-							<label for="edit_dataCity" style="float:left;padding:7px 15px 0 27px;">数据城市</label> 
-							<div class="col-sm-10">
-								<select	class="form-control" id="edit_dataCity" placeholder="数据城市" name="data_city">
-									<option value="">--请选择--</option>
-									<c:forEach items="${cityType}" var="item">
-										<option value="${item.dict_id}"<c:if test="${item.dict_id == dataCity}"> selected</c:if>>${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="edit_dataElement" style="float:left;padding:7px 15px 0 27px;">数据要素</label>
-							<div class="col-sm-10"> 
-								<select	class="form-control" id="edit_dataElement"  name="data_element">
-									<option value="">--请选择--</option>
-									<c:forEach items="${elementType}" var="item">
-										<option value="${item.dict_id}"<c:if test="${item.dict_id == dataElement}"> selected</c:if>>${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="edit_dataYear" style="float:left;padding:7px 15px 0 27px;">数据年份</label>
-							<div class="col-sm-10">
-								<select	class="form-control" id="edit_dataYear" name="data_year">
-									<option value="">--请选择--</option>
-									<c:forEach items="${yearType}" var="item">
-										<option value="${item.dict_id}"<c:if test="${item.dict_id == dataYear}"> selected</c:if>>${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="edit_dataMon" style="float:left;padding:7px 15px 0 27px;">数据月份</label>
-							<div class="col-sm-10">
-								<select	class="form-control" id="edit_dataMon" name="data_mon">
-									<option value="">--请选择--</option>
-									<c:forEach items="${monthType}" var="item">
-										<option value="${item.dict_id}"<c:if test="${item.dict_id == dataMon}"> selected</c:if>>${item.dict_item_name }</option>
-									</c:forEach>
-								</select>
-							</div>
-						</div>
-						
-						
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary" onclick="updateData()">保存修改</button>
-					
-				</div>
+				</form>
+				
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				<button type="button" class="btn btn-primary" onclick="updateData()">保存修改</button>
+				
 			</div>
 		</div>
 	</div>
+</div>
 	<!-- /#wrapper -->
 
 	<!-- jQuery -->
-	<script src="<%=basePath%>js/jquery.min.js"></script>
+	<script src="<%=basePath%>res/js/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
-	<script src="<%=basePath%>js/bootstrap.min.js"></script>
+	<script src="<%=basePath%>res/js/bootstrap.min.js"></script>
 
 	<!-- Metis Menu Plugin JavaScript -->
-	<script src="<%=basePath%>js/metisMenu.min.js"></script>
+	<script src="<%=basePath%>res/js/metisMenu.min.js"></script>
 
 	<!-- DataTables JavaScript -->
-	<script src="<%=basePath%>js/jquery.dataTables.min.js"></script>
-	<script src="<%=basePath%>js/dataTables.bootstrap.min.js"></script>
+	<script src="<%=basePath%>res/js/jquery.dataTables.min.js"></script>
+	<script src="<%=basePath%>res/js/dataTables.bootstrap.min.js"></script>
 
 	<!-- Custom Theme JavaScript -->
-	<script src="<%=basePath%>js/sb-admin-2.js"></script>
+	<script src="<%=basePath%>res/js/sb-admin-2.js"></script>
 	
 	<script type="text/javascript">
 		function editData(id) {
@@ -260,10 +282,11 @@
 					$("#edit_stationId").val(data.station_id);
 					$("#edit_dataCity").val(data.data_city);
 					$("#edit_dataElement").val(data.data_element);
+					//$("#edit_year_data").val(data.year_data);
 					$("#edit_dataYear").val(data.data_year);
+					
 					$("#edit_dataMon").val(data.data_mon);
-					/* $("#edit_dataElement").val(data.data_element);
-					$("#edit_dataSource").val(data.data_source); */
+					$("#edit_dataSource").val(data.data_source); 
 				}
 			});
 		}
@@ -283,7 +306,27 @@
 			}
 		}
 	
-		
+		//全选
+		function checkBox(name,checked){
+			$("input[name='" + name + "']").prop("checked",checked);
+		}
+
+		//批量删除
+		function optDelete(name){
+			//请选择一个
+			var s = $("input[name='ids']:checked").size();
+		 	if(s <= 0){
+				alert("请至少选择一个!");
+				return;
+			}
+		 	if(!confirm("确定要删除吗?")){
+		 		return ;
+		 	}
+		 	//删除
+		 	$("#jvForm").attr("action","/dataManage/deletes.do?name=" + name);
+		 	$("#jvForm").attr("method","post").submit();
+		 	window.location.reload();
+		}
 	
 		
 	</script>
